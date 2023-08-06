@@ -19,21 +19,22 @@ def check_situation(path):
         print(f"The directory {path} doesn't exist")
         quit()
     from helper_functions import isEmpty
-    situ, data=isEmpty(path)
-    if situ="empty":
+    situ, data, dir=isEmpty.isEmpty(path, "categoties_types.json")
+    if situ=="empty":
         print(f"the directory {path} is not empty ")
         quit()
-    elif situ="organized":
+    elif situ=="organized":
         print(f"the directory {path} is alredy organized")
         quit()
+    return data, dir
 
+def check_if_file_or_folder(file):
+    if os.path.isdir(file):
+        
 
-def check_if_file_or_folder():
-    pass
-
-
-def check_duplication():
-    pass
+def check_duplication(file, set_of_files):
+    if file not in set_of_files:
+        
 
 
 def check_category_type():
@@ -44,15 +45,18 @@ def move_file():
     pass
 
 
-def loop_in_directory():
-    pass
-
+def loop_in_directory(dir):
+    set_of_files = set()
+    for file in dir:
+        check_if_file_or_folder(file)
+        check_duplication(file, set_of_files)
+        check_category_type(file, data)
+        move_file(file)
 
 def main():
     directory_path = input("Enter the directory path you wanna orgnize: ")
-    check_situation(directory_path)
-    check_organized()
-    loop_in_directory()
+    data, dir=check_situation(directory_path)
+    loop_in_directory(dir)
 
 
 if __name__ == "__main__":
