@@ -1,0 +1,23 @@
+{ 
+  "categories":{
+    "Documents":["DOC": ["DOC", "DOCX"],
+      "XLS":["XLS", "XLSX"], 
+      "Presentaion":{"PPT":["PPT", "PPTX"], 
+        "ODP", 
+        "Key" } 
+      "PDF", 
+      "TXT", 
+      "ODT", 
+      "ZIP"], 
+    "Programming_files":["PY", 
+      "HTML":["HTML", "HTM"], 
+      "CSS", 
+      "JS", 
+      "JSON", 
+      "C", 
+      "KV"],
+    "Videos":["MP4", "AVI", "MOV", "FLV", "AVCHD"],
+    "Images":["JPG", "JPEG", "GIF", "SVG", "PNG", "TIF":["TIFF","TIF"]]
+    "Audios":["M4A", "MP3", "WAV"]
+  }
+}
