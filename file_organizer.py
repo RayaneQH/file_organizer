@@ -8,8 +8,6 @@ import PIL
 
 import magic
 
-from helper_functions.isEmpty import isEmpty
-
 
 wanna_suffixes: str | None = None
 wanna_upper_or_lower: str | None = None
@@ -21,9 +19,11 @@ def check_situation(path):
     if not os.path.isdir(path):
         print(f"The directory {path} doesn't exist")
         quit()
-    from helper_functions import isEmpty
 
-    situ, data, dir = isEmpty.isEmpty(path, "categoties_types.json")
+    from helper_functions.isEmpty import isEmpty
+
+    categories_types_path = os.path.abspath("categories_types.json")
+    situ, data, dir = isEmpty(path, categories_types_path)
     if situ == "empty":
         print(f"the directory {path} is not empty ")
         quit()

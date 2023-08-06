@@ -1,10 +1,10 @@
-def isEmpty(path, json_file):
+def isEmpty(path, json_path):
     import os
     import json
 
     dir = os.listdir(path)
     situ: str = ""
-    with open(json_file, "r") as json_file:
+    with open(r"{}".format(json_path), "r") as json_file:
         data = json.load(json_file)
     if len(dir) == 0:
         situ = "empty"
