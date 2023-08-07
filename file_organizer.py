@@ -40,7 +40,7 @@ def check_if_file_or_folder(file, data):
 
 
 def check_category_type(file, data):
-    category, type_ = (magic.from_file(file, mime=True)).split("/")
+    category, type_ = magic.from_file(file, mime=True).split("/")
     if not os.path.isdir(category):
         os.mkdir(category)
     path = os.getcwd(category)

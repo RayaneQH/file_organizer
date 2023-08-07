@@ -1,7 +1,8 @@
-def make_set_of_files(files):
+def make_set_of_files(path, files, OSS):
     set_of_files = set()
     for i in files:
-        set_of_files.add(i[0])
+        
+        set_of_files.add(f"{path}{OSS}{i[0]}")
     return set_of_files
 
 
@@ -9,7 +10,10 @@ def duplicate(path):
     import os
     from pathlib import Path
     from filecmp import cmp
-
+    if len(path.split("/"))==1:
+        OSS="\\"
+    else:
+        OSS="/"
     DATA_DIR = Path(path)
     files = sorted(os.listdir(DATA_DIR))
 
@@ -26,5 +30,5 @@ def duplicate(path):
 
         if not if_dupl:
             duplicateFiles.append([file_x])
-    set_of_files = make_set_of_files(duplicateFiles)
+    set_of_files = make_set_of_files(path,duplicateFiles, OSS)
     return set_of_files
